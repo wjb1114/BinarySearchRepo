@@ -151,15 +151,16 @@ namespace BinarySearch
 
         private void CorrectTree()
         {
-            
             List<int> vals = GetCurrentItems(root);
             vals.Sort();
+            int length = vals.Count;
             int splitIndex = vals.Count / 2;
             root = new Node(vals[splitIndex]);
             vals.RemoveAt(splitIndex);
-            Count = 1;
             Depth = 1;
             AddCorrectedTreeItems(vals);
+            Count = length;
+            GetMaxDepth();
         }
 
         private List<int> GetCurrentItems(Node currentNode)
